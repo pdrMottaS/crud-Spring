@@ -49,4 +49,9 @@ public class ProdutosController {
     public Produtos updateProduto(@RequestBody Produtos produto){
         return produtosRepository.save(produto);
     }
+
+    @GetMapping("/search/{nome}")
+    public List<Produtos> searchProduto(@PathVariable(value = "nome") String nome){
+        return produtosRepository.findBySearch(nome);
+    }
 }
